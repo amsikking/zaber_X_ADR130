@@ -302,9 +302,11 @@ if __name__ == '__main__':
 ##    print('\nMove and stop:')
 ##    stage._move_x(stage.x_max_mm, relative=False, block=False)
 ##    stage._stop_x()
+##    stage._finish_moving_x()
 ##    stage._get_position_x()
 ##    stage._move_y(stage.y_max_mm, relative=False, block=False)
 ##    stage._stop_y()
+##    stage._finish_moving_y()
 ##    stage._get_position_y()
 
     print('\nRe-center:')
