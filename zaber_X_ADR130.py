@@ -312,4 +312,48 @@ if __name__ == '__main__':
     print('\nRe-center:')
     stage.move_mm(65, 50, relative=False)
 
+##    print("\nTesting 384 well plate:")
+##    import time
+##    # set stage properties for max speed:
+##    stage.set_maxspeed(750, 750)
+##    # generate position array:
+##    rows, cols = 16, 24
+##    well_spacing_mm = 4.5
+##    # calculate A1 center:
+##    x_mm_A1_c, y_mm_A1_c = (65 - (cols * well_spacing_mm) / 2,
+##                            50 + (rows * well_spacing_mm) / 2)
+##    XY_stage_positions = []
+##    for c in range(cols):
+##        col_positions = []
+##        for r in range(rows): # move y-axis more frequently
+##            well = 'r%02ic%02i'%(r, c)
+##            col_positions.append(
+##                (well,
+##                (x_mm_A1_c + c * well_spacing_mm,   # +ve for x
+##                 y_mm_A1_c - r * well_spacing_mm,   # -ve for y
+##                 'absolute')))
+##        # snake scan:
+##        if not c % 2:   # odd number:
+##            XY_stage_positions.append(col_positions)
+##        else:           # even number:
+##            XY_stage_positions.append(col_positions[::-1]) # reverse
+##    # tile:
+##    stage.move_mm(65, 50, relative=False)
+##    stage.verbose = False
+##    t0 = time.perf_counter()
+##    for c in range(cols):
+##        for r in range(rows):
+##            well =  XY_stage_positions[c][r][0]
+##            XY_mm = XY_stage_positions[c][r][1]
+##            print('-> well: %s (%s)'%(well, XY_mm))
+##            # Move to XY position:
+##            stage.move_mm(XY_mm[0], XY_mm[1], relative=False)
+##    stage.move_mm(65, 50, relative=False)    
+##    t1 = time.perf_counter()
+##    # results:
+##    total_time = t1 - t0
+##    print('total_time = %0.2fs'%total_time)                 # 112.91s
+##    time_per_move_s = total_time / (cols * rows)
+##    print('time_per_move_s = %0.3fs'%time_per_move_s)       # 0.294s
+
     stage.close()
