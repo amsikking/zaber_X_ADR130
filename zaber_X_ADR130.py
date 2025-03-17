@@ -312,6 +312,26 @@ if __name__ == '__main__':
     print('\nRe-center:')
     stage.move_mm(65, 50, relative=False)
 
+##    print("\nTesting 384 move calls:")
+##    import time
+##    # set stage properties for max speed:
+##    stage.set_maxspeed(750, 750)
+##    # generate move count:
+##    rows, cols = 16, 24
+##    # make calls:
+##    stage.move_mm(65, 50, relative=False)
+##    stage.verbose = False
+##    t0 = time.perf_counter()
+##    for move in range(cols * rows):
+##        stage.move_mm(65, 50, relative=False)
+##    stage.move_mm(65, 50, relative=False)
+##    t1 = time.perf_counter()
+##    # results:
+##    total_time = t1 - t0
+##    print('total_time = %0.2fs'%total_time)                 # 18.45s
+##    time_per_move_s = total_time / (cols * rows)
+##    print('time_per_move_s = %0.3fs'%time_per_move_s)       # 0.048s
+
 ##    print("\nTesting 384 well plate:")
 ##    import time
 ##    # set stage properties for max speed:
